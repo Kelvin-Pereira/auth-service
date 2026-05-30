@@ -1,0 +1,19 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    url: jdbc:sqlite:/opt/auth-service/database/auth.db
+    driver-class-name: org.sqlite.JDBC
+
+server:
+  port: 8081
+  servlet:
+    context-path: /auth
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: WARN
+
