@@ -17,3 +17,7 @@ logging:
     root: INFO
     org.springframework.security: WARN
 
+security:
+  jwt:
+    secret: minha-chave-super-secreta-homologacao
+    expiration: 86400000

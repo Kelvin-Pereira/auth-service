@@ -34,7 +34,7 @@ logging:
 
 security:
   jwt:
-    issuer: kanban-auth
+    issuer: auth-service
     access-token-expiration-minutes: 60
     refresh-token-expiration-days: 30
     private-key-path: keys/private.pem
