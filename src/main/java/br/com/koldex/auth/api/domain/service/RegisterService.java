@@ -22,16 +22,16 @@ public class RegisterService {
 
     public void register(RegisterRequest request) {
 
-        userRepository.findByEmail(request.getEmail())
+        userRepository.findByEmail(request.email())
                 .ifPresent(u -> {
                     throw new BusinessException("E-mail já cadastrado");
                 });
 
         UserAccount user = UserAccount.builder()
                 .id(UUID.randomUUID().toString())
-                .name(request.getName())
-                .email(request.getEmail())
-                .password(passwordEncoder.encode(request.getPassword()))
+                .name(request.name())
+                .email(request.email())
+                .password(passwordEncoder.encode(request.password()))
                 .indAtivo("S")
                 .createdAt(LocalDateTime.now())
                 .build();
