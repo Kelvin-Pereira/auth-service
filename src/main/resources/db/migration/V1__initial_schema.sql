@@ -190,3 +190,8 @@ SELECT
     CURRENT_TIMESTAMP
 FROM action;
 
+INSERT INTO user_account (id, name, email, password, ind_ativo, created_at) VALUES ('0f8e3563-1690-437b-81c9-8c9fd398e49f', 'Kelvin', 'kelvin@koldex.com', '$2a$10$mLI/WreX8HhKi3gT.rcVdeqY.jZlmeu608edTIBrn5RWy69AVw1YC', 'S', '1780350558307');
+
+INSERT INTO user_role (user_id, role_id, created_at) VALUES ('0f8e3563-1690-437b-81c9-8c9fd398e49f', 'ROLE-ADMIN', '2026-06-01 19:01:17.000');
+
+
