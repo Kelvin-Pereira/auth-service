@@ -23,29 +23,29 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class LoginService {
 
-    private final UserAccountRepository userRepository;
-    private final ContextRepository contextRepository;
-    private final UserRoleRepository userRoleRepository;
-    private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private final PasswordEncoder passwordEncoder;
+    private final ContextRepository contextRepository;
+    private final UserAccountRepository userRepository;
+    private final UserRoleRepository userRoleRepository;
 
     public LoginResponse login(LoginRequest request) {
 
         // 1. busca usuário
-        UserAccount user = userRepository.findByEmail(request.getEmail())
+        UserAccount user = userRepository.findByEmail(request.email())
                 .orElseThrow(() ->
-                        new UnauthorizedException("Usuário ou senha inválidos")
+                        new UnauthorizedException("Usuário ou senha inválidos.")
                 );
 
         // 2. valida senha (BCrypt)
-        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-            throw new UnauthorizedException("Usuário ou senha inválidos");
+        if (!passwordEncoder.matches(request.password(), user.getPassword())) {
+            throw new UnauthorizedException("Usuário ou senha inválidos.");
         }
 
         // 3. busca contexto
-        Context context = contextRepository.findByName(request.getContext())
+        Context context = contextRepository.findByName(request.context())
                 .orElseThrow(() ->
-                        new BusinessException("Contexto não encontrado")
+                        new BusinessException("Contexto não encontrado.")
                 );
 
         // 4. busca roles do usuário no contexto
@@ -57,7 +57,7 @@ public class LoginService {
 
         // 5. valida acesso ao contexto
         if (userRoles.isEmpty()) {
-            throw new ForbiddenException("Usuário não possui acesso ao contexto");
+            throw new ForbiddenException("Usuário não possui acesso ao contexto: " + request.context());
         }
 
         // 6. monta roles

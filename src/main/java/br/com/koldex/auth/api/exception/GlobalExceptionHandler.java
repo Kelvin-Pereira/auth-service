@@ -26,4 +26,11 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(500)
                 .body(Map.of("error", "Erro interno"));
     }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<?> handle(ForbiddenException ex) {
+        return ResponseEntity.status(403)
+                .body(Map.of("error", ex.getMessage()));
+    }
+
 }
