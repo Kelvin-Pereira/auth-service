@@ -24,7 +24,7 @@ public class RegisterService {
 
         userRepository.findByEmail(request.getEmail())
                 .ifPresent(u -> {
-                    throw new BusinessException("Email já cadastrado");
+                    throw new BusinessException("E-mail já cadastrado");
                 });
 
         UserAccount user = UserAccount.builder()
