@@ -3,6 +3,11 @@ spring:
     activate:
       on-profile: prod
 
+  security:
+    oauth2:
+      authorizationserver:
+        issuer: https://auth.suaempresa.com.br
+
   datasource:
     url: jdbc:sqlite:/opt/auth-service/database/auth.db
     driver-class-name: org.sqlite.JDBC
