@@ -4,9 +4,9 @@ spring:
       on-profile: dev
 
   datasource:
-    url: jdbc:postgresql://192.168.1.35:5432/casaos
-    username: user_app_corp_d
-    password: user_app_corp_d
+    url: jdbc:postgresql://192.168.1.35:5432/dev
+    username: user_app_corp
+    password: user_app_corp
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -33,5 +33,5 @@ logging:
 
 app:
   database:
-    schema: corporativo_d
+    schema: corporativo
 

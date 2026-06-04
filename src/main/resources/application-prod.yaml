@@ -9,7 +9,7 @@ spring:
         issuer: https://auth.suaempresa.com.br
 
   datasource:
-    url: jdbc:postgresql://192.168.1.35:5432/casaos
+    url: jdbc:postgresql://192.168.1.35:5432/prod
     username: USER_APP_CORP
     password: USER_APP_CORP
     driver-class-name: org.postgresql.Driver
