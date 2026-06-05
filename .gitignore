@@ -62,7 +62,3 @@ temp/
 # ==========================
 # Generated Keys
 # ==========================
-src/main/resources/keys/
-*.pem
-*.key
-*.pub
